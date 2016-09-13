@@ -1,4 +1,4 @@
-# BinaryDataOverPhoenixSockets
+# Binary data over Phoenix sockets
 
 ### To start the app:
 
@@ -8,7 +8,7 @@
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-### To run the tests
+### To run the tests:
 
   * Install node dev dependencies with `npm install --save-dev`
   * Run `mix test && npm test`

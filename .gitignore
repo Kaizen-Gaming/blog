@@ -3,3 +3,7 @@
 /deps
 erl_crash.dump
 *.ez
+
+#nest ignore files
+nest/Nest.xcodeproj/project.xcworkspace/xcuserdata
+nest/Nest.xcodeproj/xcuserdata

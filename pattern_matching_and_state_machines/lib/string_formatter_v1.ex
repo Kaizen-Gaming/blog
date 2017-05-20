@@ -17,7 +17,8 @@ defmodule StringFormatterV1 do
     do_format(string, normalized_params, "", @state_normal, nil)
   end
 
-  defp do_format("", _, formatted, _, _), do: formatted
+  defp do_format("", _, formatted, _, nil), do: formatted
+  defp do_format("", _, formatted, _, remaining), do: formatted <> "{" <> remaining
 
   defp do_format("{{" <> rest, params, formatted, state, placeholder) do
     do_format(rest, params, formatted <> "{", state, placeholder)

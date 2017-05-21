@@ -63,6 +63,20 @@ defmodule StringFormatterTests do
           |> Formatter.format(name: "George")
         assert "Hello {name" == ret
       end
+
+      test "no placeholders in string" do
+        ret =
+          "Hello everyone"
+          |> Formatter.format(name: "George")
+        assert "Hello everyone" == ret
+      end
+
+      test "placeholder with escape sequence" do
+        ret =
+          "Hello {name}}}"
+          |> Formatter.format(%{"name}" => "George"})
+        assert "Hello George" == ret
+      end
     end
   end
 

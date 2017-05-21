@@ -24,6 +24,10 @@ defmodule StringFormatterV1 do
     do_format(rest, params, formatted <> "{", state, placeholder)
   end
 
+  defp do_format("}}" <> rest, params, formatted, @state_reading_placeholder = state, placeholder) do
+    do_format(rest, params, formatted, state, placeholder <> "}")
+  end
+
   defp do_format("}}" <> rest, params, formatted, state, placeholder) do
     do_format(rest, params, formatted <> "}", state, placeholder)
   end

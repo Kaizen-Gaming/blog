@@ -71,11 +71,11 @@ defmodule StringFormatterTests do
         assert "Hello everyone" == ret
       end
 
-      test "placeholder with escape sequence" do
+      test "placeholders with escape sequence" do
         ret =
-          "Hello {name}}}"
-          |> Formatter.format(%{"name}" => "George"})
-        assert "Hello George" == ret
+          "Hello {name}}}, I'm {other{{name}"
+          |> Formatter.format(%{"name}" => "George", "other{name" => "Zack"})
+        assert "Hello George, I'm Zack" == ret
       end
     end
   end

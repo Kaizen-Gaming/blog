@@ -1,19 +1,10 @@
-# PatternMatchingAndStateMachines
+# Pattern Matching And State Machines
 
-**TODO: Add description**
+## What is this
+This folder contains code samples and tests for the [blog post here](https://nerds.stoiximan.gr/2017/05/24/pattern-matching-and-state-machines/)
 
-## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pattern_matching_and_state_machines` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [{:pattern_matching_and_state_machines, "~> 0.1.0"}]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pattern_matching_and_state_machines](https://hexdocs.pm/pattern_matching_and_state_machines).
-
+### Unit tests
+simply run `mix test` from the command line as usual
+### Benchmarks
+Run `mix run benchmark/run.exs` to see who's fastest

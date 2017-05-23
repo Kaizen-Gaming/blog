@@ -28,6 +28,8 @@ defmodule PatternMatchingAndStateMachines.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:benchee, "~> 0.8", only: :dev}
+    ]
   end
 end

@@ -18,10 +18,11 @@ defmodule StringFormatterSplit do
     string
     |> split_func.()
     |> do_format(normalized_params, split_func, @status_normal, [], [])
+    |> flush(opts)
   end
 
-  defp do_format([left, "", _], _, _, @status_normal, formatted, _), do: [formatted, left] |> IO.iodata_to_binary()
-  defp do_format([left, "", _], _, _, @status_reading_placeholder, formatted, placeholder), do: [formatted, "{", placeholder, left] |> IO.iodata_to_binary()
+  defp do_format([left, "", _], _, _, @status_normal, formatted, _), do: [formatted, left]
+  defp do_format([left, "", _], _, _, @status_reading_placeholder, formatted, placeholder), do: [formatted, "{", placeholder, left]
 
   defp do_format([left, "{", "{" <> right], params, split_func, @status_reading_placeholder = status, formatted, placeholder) do
     right
@@ -97,6 +98,13 @@ defmodule StringFormatterSplit do
         <<a::binary-size(start), b::binary-size(length), c::binary>> = string
         [a, b, c]
       :nomatch -> [string, "", ""]
+    end
+  end
+
+  defp flush(io_data, opts) do
+    case opts[:io_lists] do
+      true -> io_data
+      _ -> IO.iodata_to_binary(io_data)
     end
   end
 end
